@@ -9,12 +9,12 @@ import html
 # ============================================================
 
 COLABORADORES = [
-    "Nome_do_colaborador",
+    "Nome_do_colaborador", #Preencher com os nomes dos colaboradores no lugar de Nome_do_colaborador
     "Nome_do_colaborador",
     "Nome_do_colaborador",
 ]
 
-DATA_INICIO = date(2026, 9, 1) #aqui é a configuração de colocar a data inicial
+DATA_INICIO = date(2026, 1, 1) #aqui é a configuração de colocar a data inicial
 DATA_FIM = date(2026, 12, 31) #aqui é a configuração da data final
 
 ARQUIVO_CSV = "escala_2026.csv"
