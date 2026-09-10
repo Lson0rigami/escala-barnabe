@@ -1,1462 +1,3305 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escala do Estoque 2026 - Empadinhas Barnabé</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#063b79"
+    >
+
+    <title>Escala 2026 | Empadinhas Barnabé</title>
 
     <style>
+
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #162033;
-            background-color: #f7d900;
-            background-image:
-                linear-gradient(rgba(255, 226, 0, 0.88), rgba(255, 226, 0, 0.88)),
-                url("bg_pattern.png");
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background-color: #f5c928;
+            background-image: url("bg_pattern.png");
+            background-repeat: repeat;
+            background-size: 420px auto;
+
+            color: #152033;
+
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 22px;
-        }
-
-        .topo {
-            background: linear-gradient(135deg, #003f88, #0066cc);
+        .cabecalho {
+            background: #063b79;
             color: white;
-            border-radius: 24px;
-            padding: 26px 22px;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
-            margin-bottom: 24px;
-            text-align: center;
-            border: 4px solid #ffe600;
+
+            padding: 28px 20px;
+
+            box-shadow:
+                0 4px 15px
+                rgba(0, 0, 0, 0.18);
+        }
+
+        .cabecalho-conteudo {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            gap: 24px;
         }
 
         .logo {
-            max-width: 190px;
-            width: 100%;
-            height: auto;
-            margin-bottom: 12px;
-            border-radius: 14px;
-            padding: 8px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            width: 120px;
+            max-height: 100px;
+
+            object-fit: contain;
         }
 
-        .topo h1 {
-            margin: 10px 0 6px;
-            font-size: 36px;
-            letter-spacing: 1px;
+        .titulo-area h1 {
+            font-size: 34px;
+            margin-bottom: 6px;
         }
 
-        .topo p {
-            margin: 0;
-            font-size: 16px;
-            opacity: 0.95;
+        .titulo-area p {
+            color: #e9f1ff;
+            font-size: 15px;
+        }
+
+        .conteudo {
+            width: calc(100% - 32px);
+            max-width: 1100px;
+
+            margin: 28px auto 50px;
         }
 
         .aviso {
-            background: #fff8c8;
-            border-left: 7px solid #003f88;
-            color: #4a3d00;
-            padding: 16px;
-            border-radius: 14px;
-            margin-bottom: 26px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
-            line-height: 1.45;
+            background: white;
+
+            padding: 18px 20px;
+
+            border-left: 6px solid #063b79;
+            border-radius: 12px;
+
+            margin-bottom: 25px;
+
+            line-height: 1.55;
+
+            box-shadow:
+                0 4px 14px
+                rgba(0, 0, 0, 0.12);
         }
 
-        .bloco-mes {
-            background: rgba(255, 255, 255, 0.97);
-            border-radius: 22px;
-            padding: 18px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+        .mes {
+            background: white;
+
+            border-radius: 15px;
+
+            margin-bottom: 25px;
+
             overflow: hidden;
-            border: 1px solid rgba(0, 63, 136, 0.10);
+
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.14);
         }
 
-        .bloco-mes h2 {
-            margin-top: 0;
-            margin-bottom: 16px;
-            color: #003f88;
-            font-size: 25px;
-            border-bottom: 4px solid #ffe600;
-            padding-bottom: 8px;
+        .titulo-mes {
+            background: #063b79;
+            color: white;
+
+            padding: 15px 20px;
+
+            font-size: 21px;
+            font-weight: bold;
         }
 
-        .tabela-wrapper {
+        .tabela-container {
+            width: 100%;
             overflow-x: auto;
-            border-radius: 14px;
         }
 
         table {
             width: 100%;
+
             border-collapse: collapse;
-            min-width: 690px;
+
+            min-width: 650px;
         }
 
         th {
-            background: #003f88;
-            color: white;
-            padding: 14px 12px;
+            background: #eef3f8;
+
+            color: #063b79;
+
             text-align: left;
-            font-size: 15px;
+
+            padding: 14px 16px;
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
         }
 
         td {
-            padding: 13px 12px;
-            border-bottom: 1px solid #e7e7e7;
-            font-size: 15px;
+            padding: 15px 16px;
+
+            border-top: 1px solid #e9edf2;
+
+            vertical-align: middle;
         }
 
-        tr:nth-child(even) {
-            background: #f7fbff;
-        }
-
-        tr:hover {
-            background: #eef6ff;
+        tbody tr:hover {
+            background: #f7f9fc;
         }
 
         .linha-sabado {
-            background: #fff3a6 !important;
+            background: #fff7cc;
+        }
+
+        .linha-sabado:hover {
+            background: #fff0a8;
         }
 
         .data {
             font-weight: bold;
-            color: #003f88;
-        }
-
-        .colaboradores {
-            font-weight: bold;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 7px 11px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: bold;
             white-space: nowrap;
         }
 
-        .tag-entrega {
-            background: #dbeeff;
-            color: #003f88;
-            border: 1px solid #9dccff;
+        .pessoas {
+            font-weight: bold;
         }
 
-        .tag-compras {
-            background: #fff1b8;
-            color: #7a5b00;
-            border: 1px solid #f0cc36;
+        .etiqueta {
+            display: inline-block;
+
+            padding: 6px 11px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            white-space: nowrap;
         }
 
-        .tag-presencial {
-            background: #e7f8de;
-            color: #256b1f;
-            border: 1px solid #aad69a;
+        .entrega {
+            background: #dceaff;
+            color: #064b96;
+        }
+
+        .compras {
+            background: #fff0a8;
+            color: #785900;
+        }
+
+        .presencial {
+            background: #dff4e4;
+            color: #276338;
         }
 
         .rodape {
             text-align: center;
-            color: #162033;
-            font-size: 14px;
-            padding: 10px 0 30px;
-            opacity: 0.85;
+
+            padding: 22px;
+
+            color: #17375e;
+
+            font-size: 13px;
+
             font-weight: bold;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 12px;
+        /* ================================================
+           CELULAR
+           ================================================ */
+
+        @media (max-width: 680px) {
+
+            .cabecalho {
+                padding: 22px 16px;
             }
 
-            .topo {
-                padding: 18px 14px;
-                border-radius: 18px;
+            .cabecalho-conteudo {
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 12px;
             }
 
             .logo {
-                max-width: 150px;
+                width: 105px;
             }
 
-            .topo h1 {
-                font-size: 26px;
+            .titulo-area h1 {
+                font-size: 28px;
             }
 
-            .topo p {
+            .titulo-area p {
+                line-height: 1.4;
+            }
+
+            .conteudo {
+                width: calc(100% - 20px);
+
+                margin-top: 18px;
+            }
+
+            .aviso {
                 font-size: 14px;
+
+                padding: 16px;
+
+                border-left-width: 5px;
             }
 
-            .bloco-mes {
-                padding: 14px;
-                border-radius: 16px;
+            .mes {
+                border-radius: 12px;
             }
 
-            .bloco-mes h2 {
-                font-size: 21px;
+            .titulo-mes {
+                font-size: 19px;
+
+                padding: 14px 16px;
             }
 
-            th, td {
-                padding: 10px 8px;
-                font-size: 14px;
+            .tabela-container {
+                overflow: visible;
+            }
+
+            table {
+                min-width: 0;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tbody,
+            tr,
+            td {
+                display: block;
+                width: 100%;
+            }
+
+            tbody tr {
+                padding: 13px 15px;
+
+                border-bottom:
+                    1px solid #e3e8ee;
+            }
+
+            tbody tr:last-child {
+                border-bottom: none;
+            }
+
+            td {
+                display: flex;
+
+                justify-content: space-between;
+                align-items: center;
+
+                gap: 14px;
+
+                padding: 6px 0;
+
+                border: none;
+
+                text-align: right;
+            }
+
+            td::before {
+                content: attr(data-label);
+
+                color: #687386;
+
+                font-size: 11px;
+
+                font-weight: bold;
+
+                text-transform: uppercase;
+
+                text-align: left;
+            }
+
+            .pessoas {
+                font-size: 15px;
             }
         }
 
-        @media print {
-            body {
-                background: white;
-            }
-
-            .topo, .aviso, .bloco-mes {
-                box-shadow: none;
-            }
-
-            .bloco-mes {
-                page-break-inside: avoid;
-            }
-        }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
+<header class="cabecalho">
 
-        <div class="topo">
-            <img src="logo.PNG" alt="Logo Empadinhas Barnabé" class="logo">
-            <h1>Escala do Estoque 2026</h1>
-            <p>Empadinhas Barnabé • Entregas, Compras e Sábados</p>
-        </div>
+    <div class="cabecalho-conteudo">
 
-        <div class="aviso">
-            <strong>Aviso:</strong> Cada colaborador realiza uma entrega por semana. A pessoa da sexta-feira também fica responsável pelas compras de terça-feira e folga no sábado.
-        </div>
+        <img
+            src="logo.png"
+            alt="Empadinhas Barnabé"
+            class="logo"
+        >
 
-        <div class="bloco-mes">
-            <h2>JUNHO / 2026</h2>
+        <div class="titulo-area">
 
-            <div class="tabela-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Dia</th>
-                            <th>Tarefa</th>
-                            <th>Colaboradores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <h1>Escala 2026</h1>
 
-                        <tr class="">
-                            <td class="data">01/06/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
+            <p>
+                Empadinhas Barnabé •
+                Entregas, Compras e Sábados
+            </p>
 
-                        <tr class="">
-                            <td class="data">02/06/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">03/06/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">05/06/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">06/06/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">08/06/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">09/06/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">10/06/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">12/06/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">13/06/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">15/06/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">16/06/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">17/06/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">19/06/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">20/06/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">22/06/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">23/06/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">24/06/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">26/06/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">27/06/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">29/06/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">30/06/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bloco-mes">
-            <h2>JULHO / 2026</h2>
-
-            <div class="tabela-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Dia</th>
-                            <th>Tarefa</th>
-                            <th>Colaboradores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr class="">
-                            <td class="data">01/07/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">03/07/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">04/07/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">06/07/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">07/07/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">08/07/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">10/07/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">11/07/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">13/07/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">14/07/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">15/07/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">17/07/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">18/07/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">20/07/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">21/07/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">22/07/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">24/07/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">25/07/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">27/07/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">28/07/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">29/07/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">31/07/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bloco-mes">
-            <h2>AGOSTO / 2026</h2>
-
-            <div class="tabela-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Dia</th>
-                            <th>Tarefa</th>
-                            <th>Colaboradores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr class="linha-sabado">
-                            <td class="data">01/08/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">03/08/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">04/08/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">05/08/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">07/08/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">08/08/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">10/08/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">11/08/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">12/08/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">14/08/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">15/08/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">17/08/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">18/08/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">19/08/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">21/08/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">22/08/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">24/08/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">25/08/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">26/08/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">28/08/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">29/08/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">31/08/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bloco-mes">
-            <h2>SETEMBRO / 2026</h2>
-
-            <div class="tabela-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Dia</th>
-                            <th>Tarefa</th>
-                            <th>Colaboradores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr class="">
-                            <td class="data">01/09/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">02/09/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">04/09/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">05/09/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">07/09/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">08/09/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">09/09/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">11/09/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">12/09/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">14/09/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">15/09/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">16/09/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">18/09/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">19/09/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">21/09/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">22/09/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">23/09/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">25/09/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">26/09/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">28/09/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">29/09/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">30/09/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bloco-mes">
-            <h2>OUTUBRO / 2026</h2>
-
-            <div class="tabela-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Dia</th>
-                            <th>Tarefa</th>
-                            <th>Colaboradores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr class="">
-                            <td class="data">02/10/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">03/10/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">05/10/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">06/10/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">07/10/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">09/10/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">10/10/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">12/10/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">13/10/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">14/10/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">16/10/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">17/10/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">19/10/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">20/10/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">21/10/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">23/10/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">24/10/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">26/10/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">27/10/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">28/10/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">30/10/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">31/10/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bloco-mes">
-            <h2>NOVEMBRO / 2026</h2>
-
-            <div class="tabela-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Dia</th>
-                            <th>Tarefa</th>
-                            <th>Colaboradores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr class="">
-                            <td class="data">02/11/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">03/11/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">04/11/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">06/11/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">07/11/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">09/11/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">10/11/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">11/11/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">13/11/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">14/11/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">16/11/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">17/11/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">18/11/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">20/11/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">21/11/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">23/11/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">24/11/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">25/11/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">27/11/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">28/11/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">30/11/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bloco-mes">
-            <h2>DEZEMBRO / 2026</h2>
-
-            <div class="tabela-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Dia</th>
-                            <th>Tarefa</th>
-                            <th>Colaboradores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr class="">
-                            <td class="data">01/12/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">02/12/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">04/12/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">05/12/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">07/12/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">08/12/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">09/12/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">11/12/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">12/12/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Vitor, Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">14/12/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">15/12/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">16/12/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">18/12/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">19/12/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Marcilio, Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">21/12/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">22/12/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">23/12/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">25/12/2026</td>
-                            <td>Sexta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                        <tr class="linha-sabado">
-                            <td class="data">26/12/2026</td>
-                            <td>Sábado</td>
-                            <td><span class="tag tag-presencial">Presencial</span></td>
-                            <td class="colaboradores">Lucas, Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">28/12/2026</td>
-                            <td>Segunda-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Vitor</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">29/12/2026</td>
-                            <td>Terça-feira</td>
-                            <td><span class="tag tag-compras">Compras</span></td>
-                            <td class="colaboradores">Lucas</td>
-                        </tr>
-
-                        <tr class="">
-                            <td class="data">30/12/2026</td>
-                            <td>Quarta-feira</td>
-                            <td><span class="tag tag-entrega">Entrega</span></td>
-                            <td class="colaboradores">Marcilio</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="rodape">
-            Sistema de escala gerado em Python para uso interno da Empadinhas Barnabé.
         </div>
 
     </div>
+
+</header>
+
+
+<main class="conteudo">
+
+    <div class="aviso">
+
+        <strong>Aviso:</strong>
+
+        Cada colaborador realiza uma entrega por semana.
+        A pessoa da sexta-feira também fica responsável
+        pelas compras de terça-feira e folga no sábado.
+
+    </div>
+
+<section class="mes">
+
+    <div class="titulo-mes">
+        Setembro de 2026
+    </div>
+
+    <div class="tabela-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Data</th>
+                    <th>Dia</th>
+                    <th>Atividade</th>
+                    <th>Colaborador(es)</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        01/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        02/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        04/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        05/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton + Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        07/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        08/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        09/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        11/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        12/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas + Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        14/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        15/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        16/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        18/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        19/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick + Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        21/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        22/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        23/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        25/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        26/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton + Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        28/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        29/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        30/09/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<section class="mes">
+
+    <div class="titulo-mes">
+        Outubro de 2026
+    </div>
+
+    <div class="tabela-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Data</th>
+                    <th>Dia</th>
+                    <th>Atividade</th>
+                    <th>Colaborador(es)</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        02/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        03/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas + Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        05/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        06/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        07/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        09/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        10/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick + Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        12/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        13/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        14/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        16/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        17/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton + Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        19/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        20/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        21/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        23/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        24/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas + Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        26/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        27/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        28/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        30/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        31/10/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick + Welligton
+    </td>
+
+</tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<section class="mes">
+
+    <div class="titulo-mes">
+        Novembro de 2026
+    </div>
+
+    <div class="tabela-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Data</th>
+                    <th>Dia</th>
+                    <th>Atividade</th>
+                    <th>Colaborador(es)</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        02/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        03/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        04/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        06/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        07/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton + Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        09/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        10/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        11/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        13/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        14/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas + Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        16/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        17/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        18/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        20/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        21/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick + Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        23/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        24/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        25/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        27/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        28/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton + Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        30/11/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<section class="mes">
+
+    <div class="titulo-mes">
+        Dezembro de 2026
+    </div>
+
+    <div class="tabela-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Data</th>
+                    <th>Dia</th>
+                    <th>Atividade</th>
+                    <th>Colaborador(es)</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        01/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        02/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        04/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        05/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas + Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        07/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        08/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        09/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        11/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        12/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick + Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        14/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        15/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        16/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        18/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        19/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton + Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        21/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        22/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        23/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        25/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Sexta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+<tr class="linha-sabado">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        26/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Sábado
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta presencial"
+        >
+            Presencial
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas + Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        28/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Segunda-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Erick
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        29/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Terça-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta compras"
+        >
+            Compras
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Lucas
+    </td>
+
+</tr>
+
+<tr class="">
+
+    <td
+        class="data"
+        data-label="Data"
+    >
+        30/12/2026
+    </td>
+
+    <td data-label="Dia">
+        Quarta-feira
+    </td>
+
+    <td data-label="Atividade">
+
+        <span
+            class="etiqueta entrega"
+        >
+            Entrega
+        </span>
+
+    </td>
+
+    <td
+        class="pessoas"
+        data-label="Colaborador(es)"
+    >
+        Welligton
+    </td>
+
+</tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="rodape">
+    Empadinhas Barnabé • Escala de colaboradores
+</footer>
+
 
 </body>
 </html>
